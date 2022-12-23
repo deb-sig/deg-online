@@ -1,12 +1,8 @@
 // @ts-ignore
 import { Go, fs } from "./wasm/wasm_exec.js"
 import { nanoid } from 'nanoid'
+import { getWasmBin } from "./load_wasm";
 
-let wasmBin: BufferSource;
-(async () =>{
-const response = await fetch('double-entry-generator.wasm');
-wasmBin = await response.arrayBuffer();
-})()
 
 const runGo = async (argv: string[]): Promise<string> => {
     const go = new Go()
@@ -16,7 +12,7 @@ const runGo = async (argv: string[]): Promise<string> => {
             throw new GoRuntimeError("runtime exit", code)
         }
     };
-    const { instance } = await WebAssembly.instantiate(wasmBin, go.importObject)
+    const { instance } = await WebAssembly.instantiate(await getWasmBin(), go.importObject)
     let originalWriteSync = fs.writeSync
     let outputBuf = '';
     const decoder = new TextDecoder("utf-8");
