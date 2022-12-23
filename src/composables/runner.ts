@@ -1,5 +1,5 @@
-// @ts-expect-error go wasm may raise errors
 import { nanoid } from 'nanoid'
+// @ts-expect-error ignore js type info missing
 import { Go, fs } from './wasm/wasm_exec.js'
 import { getWasmBin } from './load_wasm'
 
