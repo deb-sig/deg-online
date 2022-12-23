@@ -1,5 +1,5 @@
-# [double-entry-generator](https://github.com/deb-sig/double-entry-generator) WASM Demo
+# double-entry-generator Online
 
-This repo is for temporary, eventually this repo will renamed as `deg-online`.
+The front-end code for the [`double-entry-generator`](https://github.com/deb-sig/double-entry-generator) online site.
 
 
