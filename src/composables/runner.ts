@@ -2,8 +2,11 @@
 import { Go, fs } from "./wasm/wasm_exec.js"
 import { nanoid } from 'nanoid'
 
+let wasmBin: BufferSource;
+(async () =>{
 const response = await fetch('double-entry-generator.wasm');
-const wasmBin = await response.arrayBuffer();
+wasmBin = await response.arrayBuffer();
+})()
 
 const runGo = async (argv: string[]): Promise<string> => {
     const go = new Go()

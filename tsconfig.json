@@ -13,7 +13,6 @@
     "skipLibCheck": true,
     "noEmit": true,
     "types": [
-      "vitest",
       "vite/client",
       "vue/ref-macros"
     ],
