@@ -31,10 +31,10 @@ export const fs = {
   writeSync(fd, buf) {
     outputBuf += decoder.decode(buf)
     const nl = outputBuf.lastIndexOf('\n')
-    if (nl !== -1) {
-      console.log(outputBuf.substr(0, nl))
-      outputBuf = outputBuf.substr(nl + 1)
-    }
+    // if (nl !== -1) {
+    //   console.log(outputBuf.substr(0, nl))
+    //   outputBuf = outputBuf.substr(nl + 1)
+    // }
     return buf.length
   },
   write(fd, buf, offset, length, position, callback) {
@@ -45,6 +45,7 @@ export const fs = {
     const n = this.writeSync(fd, buf)
     callback(null, n)
   },
+  getBuf() { return outputBuf },
   clearBuf() { outputBuf = '' },
   chmod(path, mode, callback) { callback(enosys()) },
   chown(path, uid, gid, callback) { callback(enosys()) },

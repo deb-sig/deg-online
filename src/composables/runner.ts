@@ -11,14 +11,8 @@ const runGo = async (argv: string[]): Promise<string> => {
       throw new GoRuntimeError('runtime exit', code)
   }
   const { instance } = await WebAssembly.instantiate(await getWasmBin(), go.importObject)
-  const originalWriteSync = fs.writeSync
-  let outputBuf = ''
-  const decoder = new TextDecoder('utf-8')
-  fs.writeSync = (fd: any, buf: BufferSource) => {
-    console.log('buf: ', decoder.decode(buf))
-    outputBuf += decoder.decode(buf)
-    return buf.byteLength
-  }
+
+  fs.clearBuf()
   try {
     await go.run(instance)
   }
@@ -28,8 +22,9 @@ const runGo = async (argv: string[]): Promise<string> => {
 
     throw new GoPanicError(error.message)
   }
-  fs.writeSync = originalWriteSync
-  return outputBuf
+  const stdoutContent = fs.getBuf()
+  console.log(stdoutContent)
+  return stdoutContent
 }
 
 export const translate = async (provider: string, inputText: string, config: string): Promise<string> => {
@@ -40,7 +35,7 @@ export const translate = async (provider: string, inputText: string, config: str
     const last = inputText.indexOf('------------------------------------------------------------------------------------')
     inputText = inputText.slice(0, last) // workaround for exceed CLI length limit
   }
-  const tmpEle = document.createElement('div')
+  const tmpEle = document.createElement('pre')
   const tmpId = nanoid(7)
   tmpEle.setAttribute('id', tmpId)
   document.body.appendChild(tmpEle)
