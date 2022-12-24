@@ -35,8 +35,9 @@ export const translate = async (provider: string, inputText: string, config: str
     const last = inputText.indexOf('------------------------------------------------------------------------------------')
     inputText = inputText.slice(0, last) // workaround for exceed CLI length limit
   }
-  const tmpEle = document.createElement('pre')
+  const tmpEle = document.createElement('textarea')
   const tmpId = nanoid(7)
+  tmpEle.setAttribute('style', 'display: none')
   tmpEle.setAttribute('id', tmpId)
   document.body.appendChild(tmpEle)
   try {
