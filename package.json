@@ -1,0 +1,33 @@
+{
+  "name": "deg-online",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.7",
+    "@heroicons/vue": "^2.0.13",
+    "@vue-hero-icons/outline": "^1.7.2",
+    "@vue-hero-icons/solid": "^1.7.2",
+    "@vueuse/core": "^9.8.2",
+    "nanoid": "^4.0.0",
+    "path": "^0.12.7",
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.34.0",
+    "@types/node": "^18.11.17",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.30.0",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vue-tsc": "^1.0.11"
+  }
+}
