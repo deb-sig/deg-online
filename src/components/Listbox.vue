@@ -21,6 +21,7 @@ const providers: Provider[] = [
   { name: '微信支付', code: 'wechat' },
   { name: '支付宝', code: 'alipay' },
   { name: '火币-币币交易', code: 'huobi' },
+  { name: '中国工商银行', code: 'icbc' },
 ]
 const selectedProvider = ref(providers[0])
 
@@ -50,8 +51,8 @@ watch(selectedProvider, (val) => {
             class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base border-neutral-300 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
           >
             <ListboxOption
-              v-for="person in providers" v-slot="{ active, selected }" :key="person.name"
-              :value="person" as="template"
+              v-for="provider in providers" v-slot="{ active, selected }" :key="provider.name"
+              :value="provider" as="template"
             >
               <li
                 class="relative cursor-default select-none py-2 pl-10 pr-4" :class="[
@@ -62,7 +63,7 @@ watch(selectedProvider, (val) => {
                   class="block truncate" :class="[
                     selected ? 'font-medium' : 'font-normal',
                   ]"
-                >{{ person.name }}</span>
+                >{{ provider.name }}</span>
                 <span
                   v-if="selected"
                   class="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-600"
