@@ -68,8 +68,11 @@ const translateBill = async () => {
       </div>
     </div>
   </div>
-  <h1 id="version" class="mt-6 text-center">
+  <h2 id="version" class="mt-6 text-center">
     {{ verInfo }}
+  </h2>
+  <h1 id="need_help" class="mt-6 text-center">
+    Need help? <a href="https://github.com/deb-sig/deg-online/issues/new" taget="_blank">File an issue in deb-sig/deg-online!</a>
   </h1>
 </template>
 
