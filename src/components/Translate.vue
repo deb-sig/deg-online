@@ -72,6 +72,8 @@ const translateBill = async () => {
     {{ verInfo }}
   </h2>
   <h1 id="need_help" class="mt-6 text-center">
+    Get the example inputs from <a href="https://github.com/deb-sig/double-entry-generator/tree/master/example"><code>double-entry-generator examples</code></a>.
+    <br>
     Need help? <a href="https://github.com/deb-sig/deg-online/issues/new" taget="_blank">File an issue in deb-sig/deg-online!</a>
   </h1>
 </template>
